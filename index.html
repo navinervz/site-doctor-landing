@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="dark scroll-smooth">
+<html lang="en" dir="ltr" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سایت دکتر | اورژانس و معاینه هوشمند سلامت وب‌سایت</title>
-  <meta name="description" content="معاینه تخصصی و فوری سلامت سئو، سرعت و تبدیل وب‌سایت در ۶۰ ثانیه. تجویز نسخه هوش مصنوعی توسط پارس مدیا.">
+  <title>Site Doctor | Emergency Website Health & SEO Triage in 60 Seconds</title>
+  <meta name="description" content="Complimentary 60-second website health audit by Pars Media.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            fa: ['Vazirmatn', 'sans-serif'],
+          },
           colors: {
             brand: {
-              dark: '#070B14',
+              dark: '#060911',
+              card: '#0C1322',
+              surface: '#111B30',
+              border: '#1B2B48',
               cyan: '#06B6D4',
               emerald: '#10B981',
               blue: '#3B82F6',
-              accent: '#14F1D9',
+              accent: '#22D3EE',
             }
           }
         }
@@ -29,70 +35,103 @@
     }
   </script>
   <style>
-    body { font-family: 'Vazirmatn', sans-serif; background-color: #070B14; color: #E2E8F0; overflow-x: hidden; }
-    .bg-tech-grid {
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #060911; color: #E2E8F0; overflow-x: hidden; }
+    body.lang-fa { font-family: 'Vazirmatn', sans-serif; }
+    .bg-grid-ambient {
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.16) 0%, transparent 60%),
-        radial-gradient(circle at 85% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 15% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.18) 0%, transparent 55%),
+        radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 10% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     }
-    .glass-card {
-      background: rgba(14, 21, 38, 0.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(30, 43, 72, 0.85);
+    .glass-panel {
+      background: rgba(12, 19, 34, 0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(27, 43, 72, 0.85);
     }
     .glass-card-hover:hover {
       border-color: rgba(6, 182, 212, 0.5);
-      box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px -10px rgba(6, 182, 212, 0.22);
     }
-    .pulse-dot { box-shadow: 0 0 12px #10B981, 0 0 20px #06B6D4; }
+    .neon-border-glow {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25), inset 0 0 15px -5px rgba(16, 185, 129, 0.15);
+    }
   </style>
 </head>
-<body class="bg-tech-grid min-h-screen flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-300">
+<body class="bg-grid-ambient min-h-screen flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-300">
 
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-cyan-500/10 via-emerald-500/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+  <!-- GEO-LOCATION LANGUAGE PROMPT BANNER -->
+  <div id="geo-lang-banner" class="hidden sticky top-0 z-50 w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/30 px-4 py-2.5 backdrop-blur-lg shadow-xl">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs sm:text-sm">
+      <div class="flex items-center gap-2 text-slate-200">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+        </span>
+        <span id="geo-banner-text">📍 Visiting from a Persian-speaking region? Switch to Persian (فارسی)?</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="confirmSwitchLanguage('fa')" class="px-3 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all text-xs shadow-sm">
+          تغییر به فارسی (FA)
+        </button>
+        <button onclick="dismissGeoBanner()" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition-all">
+          Keep in English
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- HEADER -->
-  <header class="w-full border-b border-slate-800/80 backdrop-blur-md sticky top-0 z-50 bg-[#070B14]/85">
+  <header class="w-full border-b border-slate-800/80 backdrop-blur-md sticky top-0 z-40 bg-[#060911]/85">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      
-      <!-- Logo & Brand -->
-      <div class="flex items-center gap-3">
-        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500/20 to-emerald-500/20 border border-cyan-500/40 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.25)]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500/20 via-slate-900 to-emerald-500/20 border border-cyan-500/40 text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.25)] group-hover:border-cyan-400 transition-all duration-300">
+          <svg class="w-6 h-6 text-cyan-400 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-3-3v6" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
-          <span class="absolute -top-1 -right-1 flex h-3 w-3">
+          <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
           </span>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-xl sm:text-2xl font-black tracking-tight text-white">سایت دکتر</span>
-            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/50">Site Doctor</span>
+            <span id="brand-title" class="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-cyan-300 transition-colors">Site Doctor</span>
+            <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800/60">Triage 2.0</span>
           </div>
-          <p class="text-[11px] text-slate-400 font-medium">پایش سلامت و اورژانس سئو وب‌سایت</p>
+          <p id="brand-tagline" class="text-[11px] text-slate-400 font-medium">Emergency Website Health & SEO Audit</p>
         </div>
-      </div>
+      </a>
 
-      <!-- Header CTAs -->
-      <div class="flex items-center gap-3 sm:gap-4">
+      <div class="flex items-center gap-2.5 sm:gap-4">
         <a href="https://parsmedia.ca" target="_blank" rel="noopener noreferrer" 
-           class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-200">
-          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-          طراحی و پشتیبانی: <strong class="text-white font-semibold">Pars Media</strong>
+           class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="header-agency-tag">By <strong>Pars Media</strong></span>
         </a>
+
+        <!-- Language Switcher Toggle -->
+        <button onclick="toggleLanguage()" 
+                id="lang-toggle-btn"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-500/60 text-xs font-semibold text-slate-200 transition-all shadow-sm">
+          <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke-width="2"/>
+          </svg>
+          <span id="lang-indicator">FA / فارسی</span>
+        </button>
+        
         <a id="header-support-btn" href="#support-section"
-           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 hover:border-cyan-500/50 transition-all duration-200 shadow-sm hover:shadow-cyan-500/10">
+           class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 hover:border-cyan-500/50 transition-all shadow-sm hover:shadow-cyan-500/10">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
-          <span>پشتیبانی آنلاین</span>
+          <span id="header-support-text">Support</span>
         </a>
       </div>
     </div>
@@ -102,42 +141,36 @@
   <main class="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 relative">
     <div class="max-w-3xl mx-auto w-full text-center">
 
-      <!-- Dynamic Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs sm:text-sm text-cyan-300 mb-6 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
-        <span id="niche-badge-icon" class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-        <span id="niche-badge-text">🚨 اسکن سلامت ۳۶۰ درجه وب‌سایت با موتور هوش مصنوعی</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs sm:text-sm text-cyan-300 mb-6 shadow-[0_0_20px_rgba(6,182,212,0.18)] animate-pulse-slow">
+        <span class="w-2 h-2 rounded-full bg-emerald-400" style="box-shadow: 0 0 10px #10B981, 0 0 15px #06B6D4;"></span>
+        <span id="niche-badge-text">🚨 360° Real-Time Website Diagnostic & SEO Emergency Triage</span>
       </div>
 
-      <!-- Main Headline (DTR) -->
       <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-5xl font-black text-white leading-tight mb-5 tracking-tight transition-all duration-300">
-        وب‌سایت شما بیمار است؟ در ۶۰ ثانیه رایگان معاینه‌اش کنید.
+        Is your website feeling sick? Get a free 60-second health audit.
       </h1>
 
-      <!-- Dynamic Subtitle -->
       <p id="hero-subtitle" class="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-        اسکن جامع سرعت لود، علائم حیاتی سئو (Core Web Vitals) و خطاهای تبدیل کاربر. نسخه تخصصی درمان همراه با راهکارهای افزایش رتبه و لید برای شما صادر می‌شود.
+        Instant triage of your Core Web Vitals, hidden technical SEO blockers, and silent conversion killers. Receive an actionable recovery prescription delivered directly to your inbox.
       </p>
 
-      <!-- AUDIT FORM CARD -->
       <div class="relative w-full max-w-xl mx-auto">
         <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-emerald-500/20 to-blue-500/30 rounded-3xl blur-xl opacity-60 pointer-events-none"></div>
 
-        <div class="relative glass-card rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-700/80 text-right overflow-hidden">
+        <div class="relative glass-panel rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-700/80 text-left overflow-hidden neon-border-glow">
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-emerald-400 to-blue-500"></div>
 
-          <!-- FORM -->
           <form id="audit-form" class="space-y-5" onsubmit="handleAuditSubmit(event)">
-            
-            <!-- Field 1: Website URL -->
             <div>
               <label for="website_url" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2 flex items-center justify-between">
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                <span class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                    <line x1="2" y1="12" x2="22" y2="12" stroke-width="2"/>
                   </svg>
-                  آدرس وب‌سایت (دامنه شما)
+                  <span id="label-website">Website Address (URL)</span>
                 </span>
-                <span class="text-[11px] text-cyan-400 font-normal">ضروری *</span>
+                <span id="badge-required" class="text-[11px] text-cyan-400 font-normal">Required *</span>
               </label>
               <div class="relative">
                 <input 
@@ -145,28 +178,27 @@
                   id="website_url" 
                   name="website_url" 
                   required
-                  placeholder="مثلاً: https://yourdomain.com" 
+                  placeholder="https://yourdomain.com" 
                   dir="ltr"
                   class="w-full px-4 py-3.5 pl-11 rounded-xl bg-slate-950/70 border border-slate-700 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 text-white placeholder-slate-500 text-sm font-medium transition-all outline-none"
                 >
-                <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
-                  <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                  <svg class="w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                   </svg>
                 </div>
               </div>
             </div>
 
-            <!-- Field 2: User Email -->
             <div>
               <label for="user_email" class="block text-xs sm:text-sm font-semibold text-slate-200 mb-2 flex items-center justify-between">
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  آدرس ایمیل (جهت دریافت نسخه و گزارش معاینه)
+                  <span id="label-email">Email Address</span>
                 </span>
-                <span class="text-[11px] text-emerald-400 font-normal">ارسال با Resend</span>
+                <span id="badge-delivery" class="text-[11px] text-emerald-400 font-normal">Instant Inbox Delivery</span>
               </label>
               <div class="relative">
                 <input 
@@ -174,27 +206,25 @@
                   id="user_email" 
                   name="user_email" 
                   required
-                  placeholder="name@example.com" 
+                  placeholder="doctor@example.com" 
                   dir="ltr"
                   class="w-full px-4 py-3.5 pl-11 rounded-xl bg-slate-950/70 border border-slate-700 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/30 text-white placeholder-slate-500 text-sm font-medium transition-all outline-none"
                 >
-                <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
-                  <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                  <svg class="w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
                   </svg>
                 </div>
               </div>
             </div>
 
-            <!-- Trust Guarantee -->
             <div class="flex items-center gap-2 text-slate-400 text-xs py-1">
-              <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
               </svg>
-              <span>معاینه ۱۰۰٪ رایگان و آنی؛ بدون اسپم و با رعایت حریم خصوصی.</span>
+              <span id="privacy-text">100% Free & confidential. No spam, no credit card required.</span>
             </div>
 
-            <!-- Submit Button -->
             <button 
               type="submit" 
               id="submit-btn" 
@@ -203,88 +233,153 @@
               <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 via-emerald-400 to-blue-500 transition-all duration-300 group-hover:opacity-100 opacity-90"></span>
               <span class="relative flex items-center justify-center gap-2.5 px-6 py-4 rounded-[10px] bg-slate-950 font-bold text-white text-base sm:text-lg group-hover:bg-slate-900/90 transition-all duration-300">
                 <span id="btn-icon">
-                  <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </span>
-                <span id="btn-text">شروع معاینه رایگان سایت</span>
+                <span id="btn-text">Start Free 60s Website Audit</span>
               </span>
             </button>
           </form>
 
-          <!-- SUCCESS STATE -->
+          <!-- SUCCESS STATE CARD -->
           <div id="result-box" class="hidden text-center py-6 space-y-4">
             <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto animate-bounce">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 class="text-xl sm:text-2xl font-black text-white">معاینه با موفقیت انجام شد!</h3>
-            <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-200 text-sm sm:text-base leading-relaxed">
-              معاینه تمام شد! نسخه شما تا چند دقیقه دیگر به ایمیلتان ارسال می‌شود.
+            
+            <h3 id="success-title" class="text-xl sm:text-2xl font-black text-white">Diagnostic Exam Complete!</h3>
+            
+            <div id="success-message" class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-200 text-sm sm:text-base leading-relaxed">
+              Examination finished! Your comprehensive prescription report will be delivered to your inbox within minutes.
             </div>
-            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 text-right space-y-2">
+
+            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 text-left space-y-2">
               <div class="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
-                <span>دامنه در حال اسکن:</span>
+                <span id="res-label-domain">Scanned Domain:</span>
                 <strong id="scanned-domain" class="text-cyan-400 font-mono">-</strong>
               </div>
               <div class="flex items-center justify-between text-slate-400 border-b border-slate-800 pb-2">
-                <span>تحلیلگر هوشمند:</span>
-                <span class="text-emerald-400 font-semibold">Google Gemini AI Engine</span>
+                <span id="res-label-engine">Diagnostic Engine:</span>
+                <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Site Doctor AI Health Core
+                </span>
               </div>
               <div class="flex items-center justify-between text-slate-400">
-                <span>وضعیت ارسال نسخه:</span>
-                <span class="text-white flex items-center gap-1">
+                <span id="res-label-status">Prescription Status:</span>
+                <span class="text-white flex items-center gap-1.5 font-medium">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-ping"></span>
-                  در صف صدور و ارسال ایمیل (Resend)
+                  Queued for Instant Dispatch
                 </span>
               </div>
             </div>
+
             <div class="pt-2 flex flex-col sm:flex-row gap-3">
-              <button onclick="resetAuditForm()" class="flex-1 py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-all border border-slate-700">معاینه یک وب‌سایت دیگر</button>
-              <a href="#support-section" class="flex-1 py-2.5 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-xs font-semibold text-white transition-all shadow-lg shadow-cyan-600/20">مشاوره با متخصصین پارس مدیا</a>
+              <button 
+                onclick="resetAuditForm()" 
+                id="btn-scan-another"
+                class="flex-1 py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-all border border-slate-700">
+                Audit Another Website
+              </button>
+              <a 
+                href="#support-section" 
+                id="btn-speak-specialist"
+                class="flex-1 py-2.5 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-xs font-semibold text-white transition-all shadow-lg shadow-cyan-600/20">
+                Speak With a Growth Strategist
+              </a>
             </div>
           </div>
 
-          <!-- ERROR STATE -->
+          <!-- ERROR STATE ALERT -->
           <div id="error-box" class="hidden mt-4 p-4 rounded-xl bg-rose-950/50 border border-rose-500/40 text-rose-200 text-xs sm:text-sm">
             <div class="flex items-start gap-2">
-              <svg class="w-5 h-5 text-rose-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <svg class="w-5 h-5 text-rose-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <div>
-                <p class="font-bold text-white mb-1">خطا در برقراری ارتباط با سرور معاینه</p>
-                <p id="error-message" class="text-rose-300 text-xs">لطفاً اتصال اینترنت خود را بررسی کنید یا دوباره تلاش فرمایید.</p>
+                <p id="error-title" class="font-bold text-white mb-1">Audit Server Connection Error</p>
+                <p id="error-message" class="text-rose-300 text-xs">Please check your network connection or try again shortly.</p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
+
+      <!-- Trust Metrics -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-10 max-w-4xl mx-auto">
+        <div class="glass-panel glass-card-hover p-4 rounded-xl text-center border border-slate-800/80">
+          <div class="text-cyan-400 text-lg sm:text-xl font-extrabold mb-1">60 Seconds</div>
+          <div id="stat-1" class="text-[11px] text-slate-400">Instant Triage Speed</div>
+        </div>
+        <div class="glass-panel glass-card-hover p-4 rounded-xl text-center border border-slate-800/80">
+          <div class="text-emerald-400 text-lg sm:text-xl font-extrabold mb-1">360° Scan</div>
+          <div id="stat-2" class="text-[11px] text-slate-400">Speed, SEO & UX Audit</div>
+        </div>
+        <div class="glass-panel glass-card-hover p-4 rounded-xl text-center border border-slate-800/80">
+          <div class="text-blue-400 text-lg sm:text-xl font-extrabold mb-1">AI-Powered</div>
+          <div id="stat-3" class="text-[11px] text-slate-400">Custom Prescription</div>
+        </div>
+        <div class="glass-panel glass-card-hover p-4 rounded-xl text-center border border-slate-800/80">
+          <div class="text-cyan-300 text-lg sm:text-xl font-extrabold mb-1">100% Free</div>
+          <div id="stat-4" class="text-[11px] text-slate-400">No Credit Card Needed</div>
+        </div>
+      </div>
+
     </div>
   </main>
 
-  <!-- CHECKLIST SECTION -->
+  <!-- CLINICAL TRIAGE HIGHLIGHTS -->
   <section class="max-w-5xl mx-auto px-4 sm:px-6 py-12 w-full">
     <div class="text-center mb-8">
-      <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">نسخه تشخیصی سایت دکتر شامل چه مواردی است؟</h2>
-      <p class="text-slate-400 text-xs sm:text-sm">پارامترهای حیاتی سایت مانند یک چکاپ کامل پزشکی اسکن می‌شوند.</p>
+      <h2 id="features-title" class="text-xl sm:text-2xl font-bold text-white mb-2">What Does Your Website Prescription Cover?</h2>
+      <p id="features-subtitle" class="text-slate-400 text-xs sm:text-sm">We scan vital website health parameters just like an exhaustive clinical examination.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="glass-card p-6 rounded-2xl border border-slate-800">
-        <h3 class="text-base font-bold text-white mb-2">تست علائم حیاتی و سرعت</h3>
-        <p class="text-slate-400 text-xs leading-relaxed">سنجش زمان پاسخ سرور (TTFB) و Core Web Vitals گوگل.</p>
-        <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-cyan-300">✓ سنجش دسکتاپ و موبایل</div>
+      <div class="glass-panel glass-card-hover p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+          <h3 id="card1-title" class="text-base font-bold text-white mb-2">Vital Signs & Speed (Core Web Vitals)</h3>
+          <p id="card1-desc" class="text-slate-400 text-xs leading-relaxed">Server response time (TTFB), Largest Contentful Paint (LCP), and first-page load friction.</p>
+        </div>
+        <div id="card1-badge" class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-cyan-300 font-medium">✓ Desktop & Mobile Speed Triage</div>
       </div>
 
-      <div class="glass-card p-6 rounded-2xl border border-slate-800">
-        <h3 class="text-base font-bold text-white mb-2">اسکن سئو تکنیکال</h3>
-        <p class="text-slate-400 text-xs leading-relaxed">بررسی خطاهای ایندکس، کدهای وضعیت و سلامت متاتگ‌ها.</p>
-        <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-300">✓ عارضه‌یابی افت رتبه</div>
+      <div class="glass-panel glass-card-hover p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 id="card2-title" class="text-base font-bold text-white mb-2">Technical SEO & Crawl Diagnostics</h3>
+          <p id="card2-desc" class="text-slate-400 text-xs leading-relaxed">HTTP status codes, indexing penalties, broken architecture, and metadata deficiencies blocking Google rank.</p>
+        </div>
+        <div id="card2-badge" class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-300 font-medium">✓ Hidden Penalty & Drop Diagnosis</div>
       </div>
 
-      <div class="glass-card p-6 rounded-2xl border border-slate-800">
-        <h3 class="text-base font-bold text-white mb-2">نسخه هوش مصنوعی Gemini</h3>
-        <p class="text-slate-400 text-xs leading-relaxed">تحلیل داده‌ها توسط Google Gemini و تدوین دستورالعمل درمان.</p>
-        <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-blue-300">✓ ارسال با Resend به ایمیل</div>
+      <div class="glass-panel glass-card-hover p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 id="card3-title" class="text-base font-bold text-white mb-2">AI-Powered Recovery Prescription</h3>
+          <p id="card3-desc" class="text-slate-400 text-xs leading-relaxed">Prioritized clinical roadmap to eliminate friction, lift conversions, and recapture lost search traffic.</p>
+        </div>
+        <div id="card3-badge" class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-blue-300 font-medium">✓ Actionable Step-by-Step Report</div>
       </div>
     </div>
   </section>
@@ -293,31 +388,31 @@
   <section id="support-section" class="w-full border-t border-b border-slate-800/80 bg-slate-950/60 py-12 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-950/50 border border-cyan-500/30 text-xs text-cyan-400 mb-4">
-        <span>توسعه‌یافته توسط تیم رشد پارس مدیا (Pars Media)</span>
+        <span id="support-badge">Engineered by Senior Growth Specialists at Pars Media</span>
       </div>
-      <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">نیاز به مشاوره اورژانسی یا درمان اختصاصی سایت دارید؟</h2>
-      <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-8">
-        کارشناسان ارشد پارس مدیا آماده‌اند تا برای اجرای نسخه‌های سئو، گوگل ادز و بازطراحی سایت در کنار شما باشند.
+      <h2 id="support-title" class="text-2xl sm:text-3xl font-black text-white mb-3">Need Emergency Help or Dedicated Site Treatment?</h2>
+      <p id="support-subtitle" class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-8">
+        Pars Media's senior subscription team is ready to cure your technical debt, execute high-converting SEO, and drive qualified revenue.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <a href="https://t.me/parsmedia_support" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-sky-600/20 transition-all">
-          <span>ارتباط در تلگرام پشتیبانی</span>
+          <span id="btn-telegram">Telegram Support</span>
         </a>
         <a href="https://wa.me/17786827514" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-emerald-600/20 transition-all">
-          <span>پشتیبانی واتساپ (+1 778 682-7514)</span>
+          <span id="btn-whatsapp">WhatsApp (+1 778 682-7514)</span>
         </a>
         <a href="https://parsmedia.ca/contact" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white text-xs sm:text-sm font-bold transition-all">
-          <span>رزرو وقت مشاوره در Pars Media</span>
+          <span id="btn-booking">Book a Strategy Call at Pars Media</span>
         </a>
       </div>
 
       <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-        <span>ایمیل: <a href="mailto:info@parsmedia.ca" class="text-white hover:text-cyan-400 font-mono">info@parsmedia.ca</a></span>
-        <span>دفتر مرکزی: ونکوور، کانادا (Vancouver, BC)</span>
+        <span>Email: <a href="mailto:info@parsmedia.ca" class="text-white hover:text-cyan-400 font-mono">info@parsmedia.ca</a></span>
+        <span>Headquarters: Vancouver, BC (Canada)</span>
       </div>
     </div>
   </section>
@@ -325,88 +420,379 @@
   <!-- FOOTER -->
   <footer class="w-full bg-[#050810] border-t border-slate-900 py-8 px-4 sm:px-6">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div><span class="font-bold text-slate-200">سایت دکتر | Site Doctor</span> • <span>سامانه عارضه‌یابی و سئو وب</span></div>
-      <div>© 2017 – 2026 <a href="https://parsmedia.ca" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-semibold">Pars Media</a>. کلیه حقوق محفوظ است.</div>
+      <div><span class="font-bold text-slate-200">Site Doctor</span> • <span id="footer-tag">Website Triage & Health Diagnostics</span></div>
+      <div>© 2017 – 2026 <a href="https://parsmedia.ca" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-semibold">Pars Media</a>. All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC PART A -->
+  <!-- JAVASCRIPT: BILINGUAL ENGINE, GEO-DETECTION, DTR & N8N WEBHOOK -->
   <script>
-    /**
-     * تنظیمات اصلی وب‌هوک و ورک‌فلو n8n
-     * آدرس URL وب‌هوک تولید شده در n8n را در متغیر زیر قرار دهید.
-     */
-    const N8N_WEBHOOK_URL = ""; 
+    const N8N_WEBHOOK_URL = ""; // Set your n8n webhook URL here
 
-    /**
-     * جدول پیکربندی تیترها و محتوا برای سیستم DTR (Dynamic Text Replacement)
-     */
+    let currentLang = 'en'; // Default language is English
+
     const NICHE_CONFIG = {
-      'dentist': {
-        badge: '🦷 اورژانس سئو و جذب بیمار برای دندانپزشکان',
-        title: 'آیا سایت دندانپزشکی شما نیاز به اورژانس سئو دارد؟',
-        subtitle: 'معاینه ۶۰ ثانیه‌ای سایت کلینیک دندانپزشکی: بررسی نوبت‌دهی آنلاین، رتبه کلمات ایمپلنت و ارتودنسی، و نسخه هوش مصنوعی Gemini.',
+      en: {
+        'dentist': {
+          badge: '🦷 Dental Practice SEO & Patient Acquisition Triage',
+          title: 'Does your dental clinic website need emergency SEO triage?',
+          subtitle: '60-second audit for dental practices: diagnose online appointment friction, organic rank for implant/orthodontic keywords, and get an automated recovery roadmap.'
+        },
+        'doctor': {
+          badge: '🩺 Medical Practice & Healthcare Clinic Diagnostic',
+          title: 'Does your medical practice website need an urgent SEO checkup?',
+          subtitle: 'Examine vital signs: page loading latency, patient conversion barriers, and local search visibility for your clinic.'
+        },
+        'clinic': {
+          badge: '🏥 Outpatient Clinic & Medical Center Health Scan',
+          title: 'Does your healthcare clinic website need an urgent SEO checkup?',
+          subtitle: 'Instant triage of booking friction, Google local pack ranking, and patient acquisition bottlenecks.'
+        },
+        'ecommerce': {
+          badge: '🛒 Checkout Friction & E-Commerce Revenue Triage',
+          title: 'Is your online store suffering from revenue drop & cart abandonment?',
+          subtitle: 'Audit Core Web Vitals, checkout speed, technical product schema, and get an action plan to restore lost conversions.'
+        },
+        'shop': {
+          badge: '📦 E-Commerce Store Health & Speed Diagnostic',
+          title: 'Is your online store suffering from revenue drop & cart abandonment?',
+          subtitle: 'Take the vital pulse of your e-commerce platform. Diagnose technical leaks draining your ad spend.'
+        },
+        'lawyer': {
+          badge: '⚖️ Law Firm & Legal Practice Digital Triage',
+          title: 'Is your law firm website failing to convert visitors into retained clients?',
+          subtitle: 'Audit trust signals, local search authority, and intake friction in 60 seconds with an actionable prescription.'
+        },
+        'legal': {
+          badge: '⚖️ Legal Marketing & Case Intake Diagnostic',
+          title: 'Does your law firm website need emergency SEO triage?',
+          subtitle: 'Uncover technical crawl blockers and client intake leaks preventing your practice from dominating search.'
+        },
+        'realestate': {
+          badge: '🏢 Real Estate Portal & Brokerage Visibility Scan',
+          title: 'Is your real estate website missing from Google page one for serious buyers?',
+          subtitle: 'Triage listing speed, local search indexing, and lead capture friction in 60 seconds.'
+        }
       },
-      'doctor': {
-        badge: '🩺 پایش سلامت وب‌سایت پزشکان و کلینیک‌های درمانی',
-        title: 'آیا وب‌سایت پزشکی و کلینیک شما نیاز به اورژانس سئو دارد؟',
-        subtitle: 'معاینه علائم حیاتی وب‌سایت پزشکی: بررسی سرعت لود، جذب بیمار از گوگل، و ارتقای سئو محلی.',
-      },
-      'clinic': {
-        badge: '🏥 عارضه‌یابی آنلاین وب‌سایت درمانگاه‌ها و مراکز درمانی',
-        title: 'آیا وب‌سایت کلینیک درمانی شما نیاز به اورژانس سئو دارد؟',
-        subtitle: 'اسکن کامل سلامت وب‌سایت کلینیک در ۶۰ ثانیه؛ نسخه رفع موانع جذب بیمار و رتبه اول کلمات تخصصی.',
-      },
-      'ecommerce': {
-        badge: '🛒 اورژانس سبد خرید و سئو فروشگاه‌های آنلاین',
-        title: 'آیا فروشگاه اینترنتی شما دچار افت فروش و ریزش مشتری شده است؟',
-        subtitle: 'معاینه تخصصی سرعت لود، سبد خرید، سئو تکنیکال و ارائه نسخه درمانی برای افزایش نرخ تبدیل (Conversion Rate).',
-      },
-      'shop': {
-        badge: '📦 بررسی تخصصی سلامت فروشگاه آنلاین',
-        title: 'آیا فروشگاه اینترنتی شما دچار افت فروش و ریزش مشتری شده است؟',
-        subtitle: 'نبض سلامت فنی و سئو فروشگاهتان را بگیرید؛ نسخه درمانی افزایش فروش با تحلیل اختصاصی هوش مصنوعی.',
-      },
-      'lawyer': {
-        badge: '⚖️ عارضه‌یابی دیجیتال وب‌سایت وکلا و موسسات حقوقی',
-        title: 'آیا وب‌سایت وکالت شما در جذب پرونده‌های جدید ناکام مانده است؟',
-        subtitle: 'معاینه سئو محلی و اعتماد وب‌سایت حقوقی شما در ۶۰ ثانیه؛ نسخه هوش مصنوعی برای تبدیل مراجعین به موکلین.',
-      },
-      'realestate': {
-        badge: '🏢 اورژانس سئو و بازدید آژانس‌های املاک',
-        title: 'آیا سایت املاک شما در صفحه اول جستجوی خریداران ملک غایب است؟',
-        subtitle: 'معاینه فنی و سئو پورتال املاک در ۶۰ ثانیه؛ راهکار اختصاصی هوش مصنوعی برای افزایش بازدید فایل‌ها و تماس خریداران.',
+      fa: {
+        'dentist': {
+          badge: '🦷 اورژانس سئو و جذب بیمار برای دندانپزشکان',
+          title: 'آیا سایت دندانپزشکی شما نیاز به اورژانس سئو دارد؟',
+          subtitle: 'معاینه ۶۰ ثانیه‌ای سایت کلینیک دندانپزشکی: بررسی نوبت‌دهی آنلاین، رتبه کلمات کلیدی، و دریافت نسخه درمان.'
+        },
+        'doctor': {
+          badge: '🩺 پایش سلامت وب‌سایت پزشکان و کلینیک‌های درمانی',
+          title: 'آیا وب‌سایت پزشکی و کلینیک شما نیاز به اورژانس سئو دارد؟',
+          subtitle: 'معاینه علائم حیاتی وب‌سایت پزشکی: بررسی سرعت لود، جذب بیمار از گوگل، و ارتقای سئو محلی.'
+        },
+        'clinic': {
+          badge: '🏥 عارضه‌یابی آنلاین وب‌سایت درمانگاه‌ها و مراکز درمانی',
+          title: 'آیا وب‌سایت کلینیک درمانی شما نیاز به اورژانس سئو دارد؟',
+          subtitle: 'اسکن کامل سلامت وب‌سایت کلینیک در ۶۰ ثانیه؛ نسخه رفع موانع جذب بیمار و رتبه اول کلمات تخصصی.'
+        },
+        'ecommerce': {
+          badge: '🛒 اورژانس سبد خرید و سئو فروشگاه‌های آنلاین',
+          title: 'آیا فروشگاه اینترنتی شما دچار افت فروش و ریزش مشتری شده است؟',
+          subtitle: 'معاینه تخصصی سرعت لود، سبد خرید، سئو تکنیکال و ارائه نسخه درمانی برای افزایش نرخ تبدیل.'
+        },
+        'shop': {
+          badge: '📦 بررسی تخصصی سلامت فروشگاه آنلاین',
+          title: 'آیا فروشگاه اینترنتی شما دچار افت فروش و ریزش مشتری شده است؟',
+          subtitle: 'نبض سلامت فنی و سئو فروشگاهتان را بگیرید؛ نسخه درمانی افزایش فروش با تحلیل اختصاصی.'
+        },
+        'lawyer': {
+          badge: '⚖️ عارضه‌یابی دیجیتال وب‌سایت وکلا و موسسات حقوقی',
+          title: 'آیا وب‌سایت وکالت شما در جذب پرونده‌های جدید ناکام مانده است؟',
+          subtitle: 'معاینه سئو محلی و اعتماد وب‌سایت حقوقی شما در ۶۰ ثانیه؛ نسخه رفع موانع تبدیل مراجعین.'
+        },
+        'legal': {
+          badge: '⚖️ اورژانس سئو و رتبه‌بندی دفاتر حقوقی',
+          title: 'آیا وب‌سایت حقوقی شما نیاز به اورژانس سئو دارد؟',
+          subtitle: 'چکاپ کامل ساختار سایت، اعتبار در گوگل و راهکارهای تبدیل جستجوگران به موکلان پرونده.'
+        },
+        'realestate': {
+          badge: '🏢 اورژانس سئو و بازدید آژانس‌های املاک',
+          title: 'آیا سایت املاک شما در صفحه اول جستجوی خریداران ملک غایب است؟',
+          subtitle: 'معاینه فنی و سئو پورتال املاک در ۶۰ ثانیه؛ راهکار اختصاصی برای افزایش بازدید فایل‌ها و تماس خریداران.'
+        }
       }
     };
+
+    const I18N = {
+      en: {
+        docTitle: 'Site Doctor | Emergency Website Health & SEO Triage in 60 Seconds',
+        brandTitle: 'Site Doctor',
+        brandTagline: 'Emergency Website Health & SEO Audit',
+        headerAgency: 'By <strong>Pars Media</strong>',
+        headerSupport: 'Support',
+        langIndicator: 'FA / فارسی',
+        defaultBadge: '🚨 360° Real-Time Website Diagnostic & SEO Emergency Triage',
+        defaultTitle: 'Is your website feeling sick? Get a free 60-second health audit.',
+        defaultSubtitle: 'Instant triage of your Core Web Vitals, hidden technical SEO blockers, and silent conversion killers. Receive an actionable recovery prescription delivered directly to your inbox.',
+        labelWebsite: 'Website Address (URL)',
+        badgeRequired: 'Required *',
+        labelEmail: 'Email Address',
+        badgeDelivery: 'Instant Inbox Delivery',
+        privacyText: '100% Free & confidential. No spam, no credit card required.',
+        btnText: 'Start Free 60s Website Audit',
+        btnLoading: 'Running Diagnostic & Issuing Prescription...',
+        successTitle: 'Diagnostic Exam Complete!',
+        successMessage: 'Examination finished! Your comprehensive prescription report will be delivered to your inbox within minutes.',
+        resLabelDomain: 'Scanned Domain:',
+        resLabelEngine: 'Diagnostic Engine:',
+        resEngineName: 'Site Doctor AI Health Core',
+        resLabelStatus: 'Prescription Status:',
+        resStatusVal: 'Queued for Instant Dispatch',
+        btnScanAnother: 'Audit Another Website',
+        btnSpeakSpecialist: 'Speak With a Growth Strategist',
+        errorTitle: 'Audit Server Connection Error',
+        stat1: 'Instant Triage Speed',
+        stat2: 'Speed, SEO & UX Audit',
+        stat3: 'Custom Prescription',
+        stat4: 'No Credit Card Needed',
+        featuresTitle: 'What Does Your Website Prescription Cover?',
+        featuresSubtitle: 'We scan vital website health parameters just like an exhaustive clinical examination.',
+        card1Title: 'Vital Signs & Speed (Core Web Vitals)',
+        card1Desc: 'Server response time (TTFB), Largest Contentful Paint (LCP), and first-page load friction.',
+        card1Badge: '✓ Desktop & Mobile Speed Triage',
+        card2Title: 'Technical SEO & Crawl Diagnostics',
+        card2Desc: 'HTTP status codes, indexing penalties, broken architecture, and metadata deficiencies blocking Google rank.',
+        card2Badge: '✓ Hidden Penalty & Drop Diagnosis',
+        card3Title: 'AI-Powered Recovery Prescription',
+        card3Desc: 'Prioritized clinical roadmap to eliminate friction, lift conversions, and recapture lost search traffic.',
+        card3Badge: '✓ Actionable Step-by-Step Report',
+        supportBadge: 'Engineered by Senior Growth Specialists at Pars Media',
+        supportTitle: 'Need Emergency Help or Dedicated Site Treatment?',
+        supportSubtitle: "Pars Media's senior subscription team is ready to cure your technical debt, execute high-converting SEO, and drive qualified revenue.",
+        btnTelegram: 'Telegram Support',
+        btnWhatsapp: 'WhatsApp (+1 778 682-7514)',
+        btnBooking: 'Book a Strategy Call at Pars Media',
+        footerTag: 'Website Triage & Health Diagnostics'
+      }
+    };
+
+    I18N.fa = {
+      docTitle: 'سایت دکتر | اورژانس و معاینه هوشمند سلامت وب‌سایت در ۶۰ ثانیه',
+      brandTitle: 'سایت دکتر',
+      brandTagline: 'پایش سلامت و اورژانس سئو وب‌سایت',
+      headerAgency: 'طراحی و توسعه: <strong>Pars Media</strong>',
+      headerSupport: 'پشتیبانی آنلاین',
+      langIndicator: 'EN / English',
+      defaultBadge: '🚨 اسکن سلامت ۳۶۰ درجه وب‌سایت با موتور هوش مصنوعی',
+      defaultTitle: 'وب‌سایت شما بیمار است؟ در ۶۰ ثانیه رایگان معاینه‌اش کنید.',
+      defaultSubtitle: 'اسکن جامع سرعت لود، علائم حیاتی سئو (Core Web Vitals) و خطاهای تبدیل کاربر. نسخه تخصصی درمان همراه با راهکارهای افزایش رتبه و لید برای شما صادر می‌شود.',
+      labelWebsite: 'آدرس وب‌سایت (دامنه شما)',
+      badgeRequired: 'ضروری *',
+      labelEmail: 'آدرس ایمیل (جهت دریافت نسخه)',
+      badgeDelivery: 'ارسال مستقیم به ایمیل',
+      privacyText: 'معاینه ۱۰۰٪ رایگان و آنی؛ بدون اسپم و با رعایت بالاترین سطح حریم خصوصی.',
+      btnText: 'شروع معاینه رایگان سایت',
+      btnLoading: 'در حال معاینه و صدور نسخه...',
+      successTitle: 'معاینه با موفقیت انجام شد!',
+      successMessage: 'معاینه تمام شد! نسخه شما تا چند دقیقه دیگر به ایمیلتان ارسال می‌شود.',
+      resLabelDomain: 'دامنه در حال اسکن:',
+      resLabelEngine: 'تحلیلگر هوشمند:',
+      resEngineName: 'موتور هوش مصنوعی سایت دکتر',
+      resLabelStatus: 'وضعیت ارسال نسخه:',
+      resStatusVal: 'در صف صدور و ارسال آنی',
+      btnScanAnother: 'معاینه یک وب‌سایت دیگر',
+      btnSpeakSpecialist: 'مشاوره با متخصصین پارس مدیا',
+      errorTitle: 'خطا در برقراری ارتباط با سرور معاینه',
+      stat1: 'مدت زمان معاینه فوری',
+      stat2: 'بررسی سرعت، سئو و UX',
+      stat3: 'نسخه درمانی هوش مصنوعی',
+      stat4: 'بدون نیاز به کارت یا پرداخت',
+      featuresTitle: 'نسخه تشخیصی سایت دکتر شامل چه مواردی است؟',
+      featuresSubtitle: 'ما پارامترهای حیاتی سایت را مانند یک چکاپ کامل پزشکی اسکن می‌کنیم.',
+      card1Title: 'تست علائم حیاتی و سرعت (Vital Stats)',
+      card1Desc: 'محاسبه زمان پاسخ سرور (TTFB)، سنجش Core Web Vitals گوگل و زمان بارگذاری صفحه.',
+      card1Badge: '✓ سنجش سرعت دسکتاپ و موبایل',
+      card2Title: 'اسکن عفونت‌های سئو تکنیکال (Technical SEO)',
+      card2Desc: 'بررسی وضعیت HTTP، خطاهای ایندکس، سلامت متاتگ‌ها و موانع صعود در نتایج ارگانیک گوگل.',
+      card2Badge: '✓ تشخیص افت رتبه و جریمه‌ها',
+      card3Title: 'نسخه درمانی هوش مصنوعی',
+      card3Desc: 'پردازش دقیق داده‌ها توسط هوش مصنوعی و تدوین نسخه گام‌به‌گام برای افزایش سرنخ‌ها و لیدها.',
+      card3Badge: '✓ ارسال خودکار نسخه تمیز به ایمیل شما',
+      supportBadge: 'توسعه‌یافته توسط تیم رشد و دیجیتال مارکتینگ پارس مدیا',
+      supportTitle: 'نیاز به مشاوره اورژانسی یا درمان اختصاصی سایت دارید؟',
+      supportSubtitle: 'کارشناسان ارشد پارس مدیا (Pars Media) آماده‌اند تا برای اجرای نسخه‌های سئو، گوگل ادز و بازطراحی سایت در کنار شما باشند.',
+      btnTelegram: 'ارتباط در تلگرام پشتیبانی',
+      btnWhatsapp: 'پشتیبانی واتساپ (+1 778 682-7514)',
+      btnBooking: 'رزرو وقت مشاوره در Pars Media',
+      footerTag: 'سامانه هوشمند عارضه‌یابی و سئو وب'
+    };
+
+    function setLanguage(lang) {
+      currentLang = (lang === 'fa') ? 'fa' : 'en';
+      localStorage.setItem('site_doctor_lang', currentLang);
+
+      const t = I18N[currentLang];
+      const isFa = (currentLang === 'fa');
+
+      document.documentElement.setAttribute('lang', isFa ? 'fa' : 'en');
+      document.documentElement.setAttribute('dir', isFa ? 'rtl' : 'ltr');
+      if (isFa) {
+        document.body.classList.add('lang-fa');
+      } else {
+        document.body.classList.remove('lang-fa');
+      }
+
+      document.title = t.docTitle;
+      document.getElementById('brand-title').textContent = t.brandTitle;
+      document.getElementById('brand-tagline').textContent = t.brandTagline;
+      document.getElementById('header-agency-tag').innerHTML = t.headerAgency;
+      document.getElementById('header-support-text').textContent = t.headerSupport;
+      document.getElementById('lang-indicator').textContent = t.langIndicator;
+
+      document.getElementById('label-website').textContent = t.labelWebsite;
+      document.getElementById('badge-required').textContent = t.badgeRequired;
+      document.getElementById('label-email').textContent = t.labelEmail;
+      document.getElementById('badge-delivery').textContent = t.badgeDelivery;
+      document.getElementById('privacy-text').textContent = t.privacyText;
+      document.getElementById('btn-text').textContent = t.btnText;
+
+      document.getElementById('success-title').textContent = t.successTitle;
+      document.getElementById('success-message').textContent = t.successMessage;
+      document.getElementById('res-label-domain').textContent = t.resLabelDomain;
+      document.getElementById('res-label-engine').textContent = t.resLabelEngine;
+      document.getElementById('res-label-status').textContent = t.resLabelStatus;
+      document.getElementById('btn-scan-another').textContent = t.btnScanAnother;
+      document.getElementById('btn-speak-specialist').textContent = t.btnSpeakSpecialist;
+      document.getElementById('error-title').textContent = t.errorTitle;
+
+      document.getElementById('stat-1').textContent = t.stat1;
+      document.getElementById('stat-2').textContent = t.stat2;
+      document.getElementById('stat-3').textContent = t.stat3;
+      document.getElementById('stat-4').textContent = t.stat4;
+
+      document.getElementById('features-title').textContent = t.featuresTitle;
+      document.getElementById('features-subtitle').textContent = t.featuresSubtitle;
+      document.getElementById('card1-title').textContent = t.card1Title;
+      document.getElementById('card1-desc').textContent = t.card1Desc;
+      document.getElementById('card1-badge').textContent = t.card1Badge;
+      document.getElementById('card2-title').textContent = t.card2Title;
+      document.getElementById('card2-desc').textContent = t.card2Desc;
+      document.getElementById('card2-badge').textContent = t.card2Badge;
+      document.getElementById('card3-title').textContent = t.card3Title;
+      document.getElementById('card3-desc').textContent = t.card3Desc;
+      document.getElementById('card3-badge').textContent = t.card3Badge;
+
+      document.getElementById('support-badge').textContent = t.supportBadge;
+      document.getElementById('support-title').textContent = t.supportTitle;
+      document.getElementById('support-subtitle').textContent = t.supportSubtitle;
+      document.getElementById('btn-telegram').textContent = t.btnTelegram;
+      document.getElementById('btn-whatsapp').textContent = t.btnWhatsapp;
+      document.getElementById('btn-booking').textContent = t.btnBooking;
+      document.getElementById('footer-tag').textContent = t.footerTag;
+
+      applyDynamicTextReplacement();
+    }
+
+    function toggleLanguage() {
+      const nextLang = (currentLang === 'en') ? 'fa' : 'en';
+      setLanguage(nextLang);
+    }
+
+    function confirmSwitchLanguage(lang) {
+      setLanguage(lang);
+      dismissGeoBanner();
+    }
+
+    function dismissGeoBanner() {
+      const banner = document.getElementById('geo-lang-banner');
+      if (banner) banner.classList.add('hidden');
+      localStorage.setItem('site_doctor_geo_dismissed', 'true');
+    }
 
     function applyDynamicTextReplacement() {
       const urlParams = new URLSearchParams(window.location.search);
       const nicheParam = urlParams.get('niche');
+      const t = I18N[currentLang];
+      const cfg = NICHE_CONFIG[currentLang];
+
       const heroTitleEl = document.getElementById('hero-title');
       const heroSubtitleEl = document.getElementById('hero-subtitle');
       const badgeTextEl = document.getElementById('niche-badge-text');
 
-      if (!nicheParam) return;
+      if (!nicheParam) {
+        heroTitleEl.textContent = t.defaultTitle;
+        heroSubtitleEl.textContent = t.defaultSubtitle;
+        badgeTextEl.textContent = t.defaultBadge;
+        return;
+      }
 
       const normalizedNiche = nicheParam.toLowerCase().trim();
-      const config = NICHE_CONFIG[normalizedNiche];
+      const nicheData = cfg[normalizedNiche];
 
-      if (config) {
-        heroTitleEl.textContent = config.title;
-        heroSubtitleEl.textContent = config.subtitle;
-        badgeTextEl.textContent = config.badge;
-        document.title = `${config.title} | سایت دکتر`;
+      if (nicheData) {
+        heroTitleEl.textContent = nicheData.title;
+        heroSubtitleEl.textContent = nicheData.subtitle;
+        badgeTextEl.textContent = nicheData.badge;
       } else {
-        const decodedNiche = decodeURIComponent(nicheParam);
-        heroTitleEl.textContent = `آیا وب‌سایت ${decodedNiche} شما نیاز به اورژانس سئو دارد؟`;
-        heroSubtitleEl.textContent = `معاینه تخصصی و فوری سلامت، سرعت و سئو وب‌سایت در ۶۰ ثانیه به همراه تجویز نسخه هوش مصنوعی Gemini.`;
-        badgeTextEl.textContent = `🚨 عارضه‌یابی تخصصی سلامت وب‌سایت حوزه ${decodedNiche}`;
+        const decoded = decodeURIComponent(nicheParam);
+        if (currentLang === 'fa') {
+          heroTitleEl.textContent = `آیا وب‌سایت ${decoded} شما نیاز به اورژانس سئو دارد؟`;
+          heroSubtitleEl.textContent = `معاینه تخصصی و فوری سلامت، سرعت و سئو وب‌سایت در ۶۰ ثانیه.`;
+          badgeTextEl.textContent = `🚨 عارضه‌یابی تخصصی سلامت وب‌سایت حوزه ${decoded}`;
+        } else {
+          heroTitleEl.textContent = `Does your ${decoded} website need emergency SEO triage?`;
+          heroSubtitleEl.textContent = `Instant 60-second diagnostic of Core Web Vitals, crawl blockers, and conversion bottlenecks.`;
+          badgeTextEl.textContent = `🚨 360° Real-Time Audit for ${decoded} Websites`;
+        }
       }
     }
 
-    /**
-     * ارسال فرم معاینه به وب‌هوک n8n و مدیریت وضعیت دکمه و پیام‌ها
-     */
+    async function detectLocationAndLanguage() {
+      const savedLang = localStorage.getItem('site_doctor_lang');
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+
+      if (urlLang === 'fa' || urlLang === 'en') {
+        setLanguage(urlLang);
+        return;
+      }
+
+      if (savedLang) {
+        setLanguage(savedLang);
+        return;
+      }
+
+      let isPersianRegion = false;
+      const navLangs = navigator.languages || [navigator.language || ''];
+      for (const l of navLangs) {
+        if (l.toLowerCase().startsWith('fa')) {
+          isPersianRegion = true;
+          break;
+        }
+      }
+
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (tz.includes('Tehran') || tz.includes('Iran')) {
+          isPersianRegion = true;
+        }
+      } catch (e) {}
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
+        const res = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.country_code === 'IR') {
+            isPersianRegion = true;
+          }
+        }
+      } catch (e) {}
+
+      const dismissed = localStorage.getItem('site_doctor_geo_dismissed');
+      if (isPersianRegion && !dismissed) {
+        const banner = document.getElementById('geo-lang-banner');
+        if (banner) banner.classList.remove('hidden');
+      }
+    }
+
     async function handleAuditSubmit(event) {
       event.preventDefault();
 
@@ -432,14 +818,15 @@
         website_url: websiteUrl,
         user_email: userEmail,
         niche: niche,
+        lang: currentLang,
         source: 'parsmedia.ca/site-doctor',
         timestamp: new Date().toISOString()
       };
 
-      // تغییر وضعیت دکمه به حالت در حال اسکن
+      const t = I18N[currentLang];
       submitBtn.disabled = true;
       submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
-      btnText.textContent = 'در حال معاینه و صدور نسخه...';
+      btnText.textContent = t.btnLoading;
       btnIcon.innerHTML = `
         <svg class="animate-spin h-5 w-5 text-white inline" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -454,10 +841,9 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
-          if (!response.ok) throw new Error(`خطای ارتباط با سرور معاینه: کد وضعیت ${response.status}`);
+          if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
         } else {
-          // در صورت خالی بودن وب‌هوک، شبیه‌سازی ۲ ثانیه‌ای جهت تست UI
-          console.log('حالت آزمایشی (وب‌هوک هنوز ست نشده) - داده‌های ارسال:', payload);
+          console.log('[Dev Test Mode] Form payload dispatched:', payload);
           await new Promise(r => setTimeout(r, 2200));
         }
 
@@ -466,16 +852,16 @@
         resultBox.classList.remove('hidden');
 
       } catch (err) {
-        console.error('خطای ارسال معاینه:', err);
+        console.error('Audit submission error:', err);
         errorBox.classList.remove('hidden');
-        errorMessage.textContent = err.message || 'خطا در برقراری ارتباط با وب‌هوک n8n. لطفاً مجدداً امتحان کنید.';
+        errorMessage.textContent = err.message || 'Connection failed. Please retry.';
       } finally {
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
-        btnText.textContent = 'شروع معاینه رایگان سایت';
+        btnText.textContent = t.btnText;
         btnIcon.innerHTML = `
-          <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         `;
       }
@@ -491,8 +877,9 @@
       websiteUrlInput.focus();
     }
 
-    document.addEventListener('DOMContentLoaded', applyDynamicTextReplacement);
+    document.addEventListener('DOMContentLoaded', () => {
+      detectLocationAndLanguage();
+    });
   </script>
 </body>
 </html>
-

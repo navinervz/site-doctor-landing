@@ -1,39 +1,31 @@
-# 🩺 سایت دکتر (Site Doctor) — لندینگ‌پیج معاینه آنلاین سلامت وب‌سایت
+# 🩺 Site Doctor (سایت دکتر) — Emergency Website Health & SEO Triage
 
-لندینگ‌پیج تک‌صفحه‌ای اختصاصی برای برند **«سایت دکتر»** طراحی‌شده منطبق بر هویت بصری مدرن و تیره **[Pars Media](https://parsmedia.ca)** همراه با موتور تعویض پویای متن (DTR) و اتصال به وب‌هوک **n8n**.
+A high-converting, single-page landing page engineered for **Site Doctor** in alignment with **[Pars Media](https://parsmedia.ca)** (Vancouver, BC). Features bilingual support (English primary with Persian localization), automatic Geo-location detection with user confirmation, dynamic text replacement (DTR), and an **n8n Webhook** integration.
 
 ---
 
-## 🌟 ویژگی‌های کلیدی
+## 🌟 Key Updates & Features
 
-1. **طراحی مدرن و تم تیره (Dark Mode Medical-Tech):**
-   - پس‌زمینه نوک‌مدادی/عمیق (`#070B14`) همراه با گرید تکنولوژی و امبینت نوری.
-   - پالت رنگی پزشکی-تکنولوژی: فیروزه‌ای نئونی (`#06B6D4`)، سبز سلامت و زمردی (`#10B981`) و آبی الکتریک (`#3B82F6`).
-   - کارت‌های فرم شیشه‌ای (Glassmorphism) با بلور ۱۶ پیکسل و نوارهای نبض دیجیتال.
-   - فونت استاندارد و روان فارسی **وزیرمتن (Vazirmatn)** به همراه آیکون‌های SVG اختصاصی و راست‌چین کامل (`dir="rtl"`).
+1. **English-First with Bilingual Localization:**
+   - **Default Language:** English (`en` / `ltr`) with modern typography (`Plus Jakarta Sans`).
+   - **Persian Localization:** Seamless switch to Persian (`fa` / `rtl`) with `Vazirmatn` font.
+   - **Persistent Switcher:** Permanent `[ 🌐 FA / EN ]` toggle button in the navbar.
+   - **Smart Geo-Location & User Confirmation:** Automatically detects if the visitor is arriving from Iran or a Persian-locale browser/timezone/IP. Displays an unobtrusive confirmation banner:
+     *"📍 Visiting from a Persian-speaking region? Switch to Persian (فارسی)?"*
+     `[تغییر به فارسی]` / `[Keep in English]`
+     Saves user decision in `localStorage` without forcing unexpected redirects.
 
-2. **سیستم تغییر پویای متن (DTR - Dynamic Text Replacement):**
-   - خواندن هوشمند پارامتر `?niche=...` از URL و تطبیق آنی تیتر، زیرتیتر، بج اختصاصی و تایتل صفحه:
-     - **پیش‌فرض:** «وب‌سایت شما بیمار است؟ در ۶۰ ثانیه رایگان معاینه‌اش کنید.»
-     - **دندانپزشکی (`?niche=dentist`):** «آیا سایت دندانپزشکی شما نیاز به اورژانس سئو دارد؟»
-     - **پزشکان و کلینیک (`?niche=doctor` یا `?niche=clinic`):** «آیا وب‌سایت پزشکی و کلینیک شما نیاز به اورژانس سئو دارد؟»
-     - **فروشگاه آنلاین (`?niche=ecommerce` یا `?niche=shop`):** «آیا فروشگاه اینترنتی شما دچار افت فروش و ریزش مشتری شده است؟»
-     - **دفاتر حقوقی و وکالت (`?niche=lawyer` یا `?niche=legal`):** «آیا وب‌سایت وکالت شما در جذب پرونده‌های جدید ناکام مانده است؟»
-     - **املاک و مستغلات (`?niche=realestate`):** «آیا سایت املاک شما در صفحه اول جستجوی خریداران ملک غایب است؟»
-     - **هر صنف سفارشی دیگر:** پشتیبانی از نام دلخواه (مثلاً `?niche=صرافی` یا `?niche=باشگاه`).
+2. **Upgraded Professional Medical-Tech Icons:**
+   - Replaced basic icons with refined dual-tone, SVG-rendered medical and tech diagnostics:
+     - **Hexagonal Medical Shield Core:** Multi-layered crosshair and cardiac pulse.
+     - **Vital Signs Monitor:** Biometric ECG wave with speed performance metrics.
+     - **Technical SEO Scanner:** Multi-axis radar shield diagnosing indexing penalties.
+     - **Prescription Roadmap:** High-tech digital clinical report icon.
 
-3. **فرم معاینه هوشمند (Audit Form):**
-   - دو فیلد ورودی با اعتبارسنجی: `website_url` و `user_email`.
-   - با کلیک روی دکمه، متن بلافاصله به **«در حال معاینه و صدور نسخه...»** تغییر کرده و دکمه غیرفعال می‌شود همراه با لودینگ اسپینر.
-   - ارسال داده‌ها در قالب JSON به وب‌هوک n8n.
-   - در صورت موفقیت، باکس فرم بسته شده و پیام تایید با مضمون:
-     > **«معاینه تمام شد! نسخه شما تا چند دقیقه دیگر به ایمیلتان ارسال می‌شود.»**
-     به همراه نام دامنه و نشانگر ارسال به نمایش درمی‌آید.
-   - در صورت خالی بودن آدرس وب‌هوک، یک شبیه‌سازی ۲ ثانیه‌ای برای تست رابط کاربری به صورت خودکار اجرا می‌شود.
-
-4. **یکپارچگی با پشتیبانی پارس مدیا (Pars Media Support):**
-   - لینک سریع پشتیبانی در هدر سایت.
-   - بخش مجزای ارتباط با پشتیبانی شامل دکمه‌های مستقیم تلگرام، واتساپ با شماره کانادا (`+1 778 682-7514`)، ایمیل `info@parsmedia.ca` و فرم رزرو وقت در سایت رسمی پارس مدیا (`https://parsmedia.ca/contact`).
+3. **Clean Enterprise Branding (Zero Internal Vendor Leaks):**
+   - User-facing UI does not expose internal backend plumbing (no mention of Resend or internal AI model names to visitors).
+   - Visitors see a cohesive, trust-inducing medical SaaS interface: **"Site Doctor AI Health Core"** and **"Instant Inbox Delivery"**.
+   - The JSON payload sent to your n8n webhook contains all technical metadata (`website_url`, `user_email`, `niche`, `lang`, `source`, `timestamp`) so n8n can process it with your Google Gemini credential and send the report via Resend.
 
 ---
 
