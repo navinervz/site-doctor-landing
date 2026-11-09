@@ -25,39 +25,24 @@ A high-converting, single-page landing page engineered for **Site Doctor** in al
 3. **Clean Enterprise Branding (Zero Internal Vendor Leaks):**
    - User-facing UI does not expose internal backend plumbing (no mention of Resend or internal AI model names to visitors).
    - Visitors see a cohesive, trust-inducing medical SaaS interface: **"Site Doctor AI Health Core"** and **"Instant Inbox Delivery"**.
-   - The JSON payload sent to your n8n webhook contains all technical metadata (`website_url`, `user_email`, `niche`, `lang`, `source`, `timestamp`) so n8n can process it with your Google Gemini credential and send the report via Resend.
+   - The page POSTs `{website_url, user_email, niche, lang, company_website (honeypot), source, timestamp}` to the n8n **Site Doctor v2** webhook.
+
+4. **Instant result + emailed report (v2):**
+   - The webhook answers within a few seconds with `{ok, instant:{score, grade, counts, passed, top:[{sev,title:{en,fa}}]}}`; the page renders the score, grade, issue counts and top findings in the visitor's language.
+   - The full bilingual report (category scores, Core Web Vitals when available, treatment plan) is emailed in the background.
+   - Rejections (`invalid_url`, `invalid_email`, `blocked_host`, `blocked_port`, `domain_not_found`, `rate_limited`, HTTP 400/429) are mapped to friendly bilingual messages.
+   - Language detection uses `navigator.languages` and the timezone only; no third-party geo-IP call is made.
 
 ---
 
-## 🚀 راهنمای اتصال وب‌هوک n8n با Google Gemini و Resend
+## 🚀 n8n v2 workflow (Evidence-based audit)
 
-در فایل `index.html` خط ۳۳۹ متغیر زیر قرار دارد:
+Set the webhook in `index.html`:
 ```javascript
-const N8N_WEBHOOK_URL = "https://YOUR_N8N_DOMAIN/webhook/site-doctor-audit";
+const N8N_WEBHOOK_URL = "https://n8n.psygstore.shop/webhook/site-doctor-audit-v2";
 ```
 
-### ساختار ورک‌فلوی جدید در n8n:
-1. **نود ۱ - Webhook Trigger:**
-   - متد: `POST`
-   - مسیر وب‌هوک دلخواه (مثلاً `/site-doctor-audit`)
-   - داده‌های دریافتی از فرم شامل:
-     ```json
-     {
-       "website_url": "https://example.com",
-       "user_email": "user@example.com",
-       "niche": "dentist",
-       "source": "parsmedia.ca/site-doctor",
-       "timestamp": "2026-09-20T..."
-     }
-     ```
-2. **نود ۲ - اسکن سرعت و سرور (HTTP Request):**
-   - ارسال درخواست به Google PageSpeed Insights API یا اسکن مستقیم هدرهای دامنه.
-3. **نود ۳ - تجویز نسخه با Google Gemini:**
-   - استفاده از کریدنشال موجود شما در n8n: **`Google Gemini(PaLM) Api mydot`**
-   - پرامپت پیشنهادی:
-     > «تحلیل و صدور نسخه تشخیصی سایت دکتر برای وب‌سایت {{ $json.website_url }} در صنف {{ $json.niche }}. لطفاً ۳ عارضه اصلی و ۳ راهکار اورژانسی برای افزایش رتبه گوگل و نرخ تبدیل کاربر تجویز کنید.»
-4. **نود ۴ - ارسال نسخه با Resend:**
-   - ارسال ایمیل قالب‌بندی شده شکیل HTML به آدرس `{{ $json.user_email }}` با موضوع: `🩺 نسخه معاینه وب‌سایت شما صادر شد | سایت دکتر & پارس مدیا`.
+Pipeline: Webhook → validation (SSRF guard, rate limits, honeypot) → DNS guard → deterministic checks (indexing, on-page, security headers, SPF/DMARC, performance hints) → instant JSON response → PageSpeed Insights (CWV) → AI narration (Groq, Mistral fallback; facts only) → Resend email.
 
 ---
 
