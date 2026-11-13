@@ -1,57 +1,30 @@
-# 🩺 Site Doctor (سایت دکتر) — Emergency Website Health & SEO Triage
+# 🩺 Site Doctor — landing
 
-A high-converting, single-page landing page engineered for **Site Doctor** in alignment with **[Pars Media](https://parsmedia.ca)** (Vancouver, BC). Features bilingual support (English primary with Persian localization), automatic Geo-location detection with user confirmation, dynamic text replacement (DTR), and an **n8n Webhook** integration.
+Landing page for **Site Doctor**, a free evidence-based website health check by [Pars Media](https://parsmedia.ca).
+Static site (no build step, no CSS framework) deployed on Vercel, talking to an n8n workflow.
 
----
+## Structure
+| Path | Purpose |
+|---|---|
+| `index.html` | Page + SEO (canonical, hreflang, Open Graph, JSON-LD) |
+| `assets/styles.css` | Hand-written CSS (RTL-safe, logical properties) |
+| `assets/i18n.js` | UI strings for 10 languages (en fa ar es fr de tr ru zh hi) |
+| `assets/app.js` | Language logic, form → n8n webhook, instant result rendering |
+| `assets/niches.js` | Outreach variants (`?niche=dentist`, …) for en/fa |
+| `api/geo.js` | Vercel function: returns only the visitor's country (edge header) to *suggest* a language |
+| `llms.txt`, `llms-full.txt` | Guide for AI assistants (GEO): what Site Doctor is, facts, API |
+| `robots.txt`, `sitemap.xml` | Crawlers incl. AI bots explicitly allowed; hreflang alternates |
+| `vercel.json` | Security headers (CSP, etc.) and caching |
 
-## 🌟 Key Updates & Features
+## How it works
+1. The form POSTs `{website_url, user_email, lang, niche, company_website (honeypot), source, timestamp}` to the n8n webhook `…/webhook/site-doctor-audit-v2` (set in `assets/app.js`).
+2. n8n answers within seconds with `{ok, instant:{score, grade, counts, passed, top:[{sev,title:{en,fa}}]}}`; the page renders it. The full report follows by email.
+3. Rejections (`invalid_url`, `invalid_email`, `blocked_host`, `blocked_port`, `domain_not_found`, `rate_limited`, HTTP 400/429) are mapped to localized messages.
 
-1. **English-First with Bilingual Localization:**
-   - **Default Language:** English (`en` / `ltr`) with modern typography (`Plus Jakarta Sans`).
-   - **Persian Localization:** Seamless switch to Persian (`fa` / `rtl`) with `Vazirmatn` font.
-   - **Persistent Switcher:** Permanent `[ 🌐 FA / EN ]` toggle button in the navbar.
-   - **Smart Geo-Location & User Confirmation:** Automatically detects if the visitor is arriving from Iran or a Persian-locale browser/timezone/IP. Displays an unobtrusive confirmation banner:
-     *"📍 Visiting from a Persian-speaking region? Switch to Persian (فارسی)?"*
-     `[تغییر به فارسی]` / `[Keep in English]`
-     Saves user decision in `localStorage` without forcing unexpected redirects.
+## Languages
+- The UI language is chosen by `?lang=xx`, then the saved choice. Otherwise English is shown and a banner **suggests** a language based on the IP country (`/api/geo`) or the browser language.
+- To add a language: add it to `LANGS` and `I18N` in `assets/i18n.js` (all keys required) and to `COUNTRY_LANG` in `assets/app.js`.
+- `lang` is sent to n8n, which decides the language of the emailed report.
 
-2. **Upgraded Professional Medical-Tech Icons:**
-   - Replaced basic icons with refined dual-tone, SVG-rendered medical and tech diagnostics:
-     - **Hexagonal Medical Shield Core:** Multi-layered crosshair and cardiac pulse.
-     - **Vital Signs Monitor:** Biometric ECG wave with speed performance metrics.
-     - **Technical SEO Scanner:** Multi-axis radar shield diagnosing indexing penalties.
-     - **Prescription Roadmap:** High-tech digital clinical report icon.
-
-3. **Clean Enterprise Branding (Zero Internal Vendor Leaks):**
-   - User-facing UI does not expose internal backend plumbing (no mention of Resend or internal AI model names to visitors).
-   - Visitors see a cohesive, trust-inducing medical SaaS interface: **"Site Doctor AI Health Core"** and **"Instant Inbox Delivery"**.
-   - The page POSTs `{website_url, user_email, niche, lang, company_website (honeypot), source, timestamp}` to the n8n **Site Doctor v2** webhook.
-
-4. **Instant result + emailed report (v2):**
-   - The webhook answers within a few seconds with `{ok, instant:{score, grade, counts, passed, top:[{sev,title:{en,fa}}]}}`; the page renders the score, grade, issue counts and top findings in the visitor's language.
-   - The full bilingual report (category scores, Core Web Vitals when available, treatment plan) is emailed in the background.
-   - Rejections (`invalid_url`, `invalid_email`, `blocked_host`, `blocked_port`, `domain_not_found`, `rate_limited`, HTTP 400/429) are mapped to friendly bilingual messages.
-   - Language detection uses `navigator.languages` and the timezone only; no third-party geo-IP call is made.
-
----
-
-## 🚀 n8n v2 workflow (Evidence-based audit)
-
-Set the webhook in `index.html`:
-```javascript
-const N8N_WEBHOOK_URL = "https://n8n.psygstore.shop/webhook/site-doctor-audit-v2";
-```
-
-Pipeline: Webhook → validation (SSRF guard, rate limits, honeypot) → DNS guard → deterministic checks (indexing, on-page, security headers, SPF/DMARC, performance hints) → instant JSON response → PageSpeed Insights (CWV) → AI narration (Groq, Mistral fallback; facts only) → Resend email.
-
----
-
-## 💻 نحوه اجرا و تست محلی
-فایل `index.html` به صورت Standalone بدون نیاز به کامپایل یا بیلد قابل اجراست:
-- کافی است فایل `index.html` را در مرورگر باز کنید، یا با اکستنشن Live Server در VS Code اجرا فرمایید.
-- برای تست نمونه‌های DTR:
-  - `index.html?niche=dentist`
-  - `index.html?niche=ecommerce`
-  - `index.html?niche=doctor`
-  - `index.html?niche=realestate`
-  - `index.html?niche=lawyer`
+## Local run
+`python3 -m http.server` in the repo root (the `/api/geo` call simply fails locally; no suggestion banner is shown).
