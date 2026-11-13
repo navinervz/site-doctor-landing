@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://site-doctor-landing.vercel.app/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://site-doctor-landing.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://site-doctor-landing.vercel.app/?lang=fa"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://site-doctor-landing.vercel.app/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://site-doctor-landing.vercel.app/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://site-doctor-landing.vercel.app/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://site-doctor-landing.vercel.app/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://site-doctor-landing.vercel.app/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://site-doctor-landing.vercel.app/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://site-doctor-landing.vercel.app/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://site-doctor-landing.vercel.app/?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://site-doctor-landing.vercel.app/"/>
+  </url>
+  <url>
+    <loc>https://site-doctor-landing.vercel.app/llms.txt</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+</urlset>
