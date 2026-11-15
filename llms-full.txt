@@ -22,7 +22,7 @@ Findings and scores come from deterministic checks. A language model is given on
 Weighted categories (indexing 30%, on-page 25%, security 20%, performance 15%, trust 10%). Penalties: critical 14, important 6, minor 2 per finding. Caps apply for fatal issues (site blocked from Google or unreachable: max 40; no HTTPS: max 60). Grades: A >= 90, B >= 80, C >= 65, D >= 50, otherwise F.
 
 ## Languages
-Web interface: English, Persian (Farsi), Arabic, Spanish, French, German, Turkish, Russian, Chinese, Hindi. The emailed report follows the visitor's chosen language (English and Persian today, other languages being rolled out).
+Web interface: English, Persian (Farsi), Arabic, Spanish, French, German, Turkish, Russian, Chinese, Hindi. The emailed report follows the visitor's chosen language (all ten languages, fully translated: findings, fixes, summary and interface).
 
 ## Limits and privacy
 - 3 reports per email per hour, 3 per website per hour, 10 per IP per hour.
